@@ -1,0 +1,25 @@
+
+<div>
+<%=link_to("back", "/", :class=> 'back-link')%>
+<div class="subjects">
+<%=form_for(@user, :id=> "my_form") do |f|%>
+    
+     <%=render(:partial=> 'form', :locals=> {:f=> f})%>
+<%end%>
+
+</div>
+</div>
+
+<script>
+    $("#my_form").submit(function(event){
+	event.preventDefault(); //prevent default action 
+	
+	$.ajax({
+		url : "/users",
+		type: "POST"
+		data: html
+	})
+	});
+
+
+</script>

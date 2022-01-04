@@ -1,0 +1,20 @@
+
+<%=link_to("back", bookslists_path, :class=> 'back-link')%>
+
+<table >
+
+<tr> 
+<th>NAME </th>
+<th> DESCRIPTION</th>
+<th> USER-ID </th>
+
+</tr> 
+
+<tr> 
+<td> <%=@bookslist.bookname%> </td>
+<td> <%=@bookslist.description%> </td>
+<td> <%=@bookslist.user_id%> </td>
+
+</tr>
+
+</table> 

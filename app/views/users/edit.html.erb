@@ -1,0 +1,12 @@
+<div class="center">
+
+    <div class="center">
+    <%=form_for(@user) do |f|%>
+    <%=render(:partial=> 'form', :locals=> {:f=> f})%>
+
+    <%end%>
+    </div>
+    <div class="center">
+    <%=link_to("back", users_path, :class=> 'back-link')%>
+    </div>
+</div>
