@@ -1,0 +1,75 @@
+ <div class="center">   
+
+    <div>
+      <% if @current_user.is_owner? %>  
+        <%=link_to("ADD NEW BOOK",new_bookslist_path, :class=>'action new')%> <%=link_to("USERS LIST", users_path, :class=> 'back-link')%> <%=link_to("ADD MEMBER",new_user_path, :class=>'action new')%> <%=link_to("REQUESTED BOOKS",carts_path, :class=>'action new')%>
+      <%end%>
+    </div>
+    <div>
+     <h1> BOOKS LIST </h1>
+    </div>
+    
+    <div>
+        <table class="booksc"id="tablecenter">
+        <tr> 
+        <!--<th>#</th>
+        <th> ID</th>--> 
+        <th>  NAME</th> 
+        <th> DESCRIPTION </th> 
+
+        <th> Action</th>
+
+        </tr>
+        <%@bookslists.each do |blists|%>
+            <tr>
+            <!--<td> <%=blists.id%> </td>
+            <td> <%=@user.id%> </td>-->
+            <td> <%=blists.bookname%> </td>
+            <td> <%=blists.description%> </td>
+            <% if @current_user.is_owner? %>  
+                <td> <!--<%=link_to("show",bookslist_path(blists.id),:class=> 'action show')%>-->
+                    <%=link_to("edit",edit_bookslist_path(blists),:class=>' action edit')%>
+                    <%=link_to("delete",bookslist_path(blists),:method=> 'delete',:class=>' action delete')%>
+                    
+                    
+                </td>
+            <%end%>
+                <td> 
+                    <%= form_for @requested_book do |f|%>
+                        <%=f.hidden_field :bookslist_id, :value=>blists.id%> 
+                        <%=f.hidden_field :user_id, :value=>@user.id%> 
+                        <%=f.hidden_field :bookname, :value=>blists.bookname%> 
+                        <%=f.hidden_field :description, :value=>blists.description%> 
+                        <%=f.submit "REQUEST"%>
+                    <%end%>
+                
+                </td>
+                
+                
+
+            </tr>
+        <%end%>
+        </table>
+
+    </div>
+
+</div>
+
+
+
+
+<script>
+$(function (){
+    var $booksc=$('.booksc');
+    $.ajax({
+        type:'GET',
+        url: '/bookslists',
+        success: function(booksc) {
+            $.each(booksc.function(i,books){
+                $booksc.append(books.name);
+        
+    });
+}
+    });
+});
+</script>

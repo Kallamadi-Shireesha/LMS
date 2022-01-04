@@ -1,0 +1,21 @@
+<table id="index">
+<tr> 
+<th>#</th>
+<th> ID</th> 
+<th>USER ID </th>
+<th> NAME</th>
+<th> DESCRIPTION</th>
+</tr>
+<%@requested_books.each do |blists|%>
+
+    <tr>
+    <td> <%=blists.id%> </td>
+      <td> <%=blists.bookslist_id%> </td>
+      <td> <%=blists.user_id%> </td>
+      <td> <%=blists.bookname%> </td>
+      <td> <%=blists.description%> </td>
+    
+    </tr>
+<%end%>
+</table>
+

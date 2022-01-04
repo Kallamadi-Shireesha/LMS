@@ -1,0 +1,10 @@
+<div class="center">
+    
+    <div class="subjects">
+    <%=form_for(@bookslist) do |f|%>
+    <%=render(:partial=> 'form', :locals=> {:f=> f})%>
+
+    <%end%>
+    <%=link_to("back", bookslists_path, :class=> 'back-link')%>
+    </div>
+</div>

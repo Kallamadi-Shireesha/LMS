@@ -1,0 +1,17 @@
+// Place all the styles related to the bookslists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#index,table, th, td {
+  border: 3px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  
+  padding: 10px;
+}
+div {text-align: center;}

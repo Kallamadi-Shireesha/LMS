@@ -1,0 +1,25 @@
+ <div class="center">  
+     <div>
+          <%=link_to("back", bookslists_path, :class=> 'back-link')%> 
+     </div>
+     <div class="subjects">
+          <%=form_for(@bookslist,:id=> "my_form") do |f|%>
+    
+               <%=render(:partial=> 'form', :locals=> {:f=> f})%>
+          <%end%>
+
+     </div>
+</div>
+<script>
+    $("#my_form").submit(function(event){
+	event.preventDefault(); //prevent default action 
+	
+	$.ajax({
+		url : "/bookslists",
+		type: "POST"
+		data: html
+	})
+	});
+
+
+</script>

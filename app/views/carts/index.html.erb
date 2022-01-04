@@ -1,0 +1,36 @@
+<div class="center">
+    <div>
+        <table id="tablecenter">
+        <tr> 
+        <!--<th>#</th>
+        <th> ID</th> 
+        <th> USER ID </th>-->
+        <th> BOOK NAME</th>
+        <th> DESCRIPTION</th>
+        <th> delete </th>
+
+
+        </tr>
+        <%@requested_books.each do |blists|%>
+            <tr>
+            <!--<td> <%=blists.id%> </td>
+            <td> <%=blists.bookslist_id%> </td>
+            <td> <%=blists.user_id%> </td>-->
+            <td> <%=blists.bookname%> </td>
+            <td> <%=blists.description%> </td>
+            
+            <td> 
+                    <%=link_to("delete",cart_path(blists),:method=> 'delete',:class=>' action delete')%>
+                    
+                    
+                </td>
+                
+            </tr>
+        <%end%>
+        </table>
+    </div>
+    <div>
+        <%=link_to("back",bookslists_path)%>
+    </div>
+
+</div>
